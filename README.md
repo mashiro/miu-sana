@@ -1,4 +1,4 @@
-# Miu::Plugin::Groonga
+# Miu::Plugin::Sana
 
 TODO: Write a gem description
 
