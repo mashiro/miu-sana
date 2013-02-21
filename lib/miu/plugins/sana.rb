@@ -10,6 +10,10 @@ module Miu
           p [tag, time, record]
           'OK'
         end
+
+        def select(table, query)
+          Groonga[table].select(query).map(&:attributes)
+        end
       end
 
       def initialize(options)
