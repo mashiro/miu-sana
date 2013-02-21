@@ -105,7 +105,7 @@ end
           CONF
           append_to_file 'config/fluent.conf', <<-CONF
 
-# miu null output plugin
+# to miu.plugin.sana
 <match miu.output.**>
   type msgpack_rpc
   host localhost
