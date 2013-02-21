@@ -1,15 +1,15 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'miu-store-groonga/version'
+require 'miu-plugin-sana/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "miu-store-groonga"
-  gem.version       = Miu::Store::Groonga::VERSION
+  gem.name          = "miu-plugin-sana"
+  gem.version       = Miu::Plugin::Sana::VERSION
   gem.authors       = ["mashiro"]
   gem.email         = ["mail@mashiro.org"]
-  gem.description   = %q{miu store groonga}
-  gem.summary       = %q{miu store groonga}
+  gem.description   = %q{miu groonga plugin sana}
+  gem.summary       = %q{miu groonga plugin sana}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

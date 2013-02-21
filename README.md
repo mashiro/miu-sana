@@ -1,4 +1,4 @@
-# Miu::Store::Groonga
+# Miu::Plugin::Groonga
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'miu-store-groonga'
+    gem 'miu-plugin-sana'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install miu-store-groonga
+    $ gem install miu-plugin-sana
 
 ## Usage
 

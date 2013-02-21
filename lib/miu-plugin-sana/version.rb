@@ -1,6 +1,6 @@
 module Miu
-  module Store
-    module Groonga
+  module Plugin
+    module Sana
       VERSION = '0.0.1'
     end
   end
