@@ -1,4 +1,6 @@
 require 'miu/plugin'
+require 'msgpack/rpc'
+require 'groonga'
 
 module Miu
   module Plugins
@@ -9,8 +11,8 @@ module Miu
 
       class Handler
         def log(tag, time, record)
-          p [tag, time, record]
-          'OK'
+          puts "tag: #{tag}, time: #{time}, record: #{record}"
+          nil
         end
 
         def select(table, query)
@@ -21,8 +23,6 @@ module Miu
       end
 
       def initialize(options)
-        require 'groonga'
-        require 'msgpack/rpc'
         migrate options
         run options
       end
@@ -30,16 +30,20 @@ module Miu
       private
 
       def run(options)
-        host = options[:host]
+        bind = options[:bind]
         port = options[:port]
 
         @server = MessagePack::RPC::Server.new
-        @server.listen host, port, Handler.new
+        @server.listen bind, port, Handler.new
 
         [:TERM, :INT].each do |sig|
-          Signal.trap(sig) { @server.stop }
+          Signal.trap(sig) do
+            puts "Sana has handled SIG#{sig}, to exit..."
+            @server.stop
+          end
         end
 
+        puts "Sana has started at #{bind}:#{port}"
         @server.run
       end
 
