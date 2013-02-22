@@ -5,6 +5,8 @@ module Miu
     class Sana
       include Miu::Plugin
 
+      DEFAULT_PORT = Miu.default_port + 2
+
       class Handler
         def log(tag, time, record)
           p [tag, time, record]
@@ -90,7 +92,7 @@ module Miu
       register :sana, :desc => %(miu groonga plugin 'sana') do
         desc 'start', %(start sana)
         option :bind, :type => :string, :default => '127.0.0.1', :desc => 'bind address', :aliases => '-a'
-        option :port, :type => :numeric, :default => 30302, :desc => 'listen port', :aliases => '-p'
+        option :port, :type => :numeric, :default => DEFAULT_PORT, :desc => 'listen port', :aliases => '-p'
         option :database, :type => :string, :default => 'db/groonga/sana.db', :desc => 'database path'
         def start
           Sana.new options
@@ -115,7 +117,7 @@ end
 <match miu.output.**>
   type msgpack_rpc
   host localhost
-  port 30302
+  port #{DEFAULT_PORT}
 </match>
           CONF
         end
