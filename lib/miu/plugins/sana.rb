@@ -13,6 +13,8 @@ module Miu
 
         def select(table, query)
           Groonga[table].select(query).map(&:attributes)
+        rescue => e
+          e.to_s
         end
       end
 
