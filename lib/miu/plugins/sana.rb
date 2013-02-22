@@ -101,7 +101,7 @@ module Miu
         desc 'init', %(init sana config)
         def init
           empty_directory 'db/groonga'
-          append_to_file 'config/miu.god', <<-CONF
+          append_to_file Miu.default_god_config, <<-CONF
 
 God.watch do |w|
   w.dir = Miu.root
@@ -111,9 +111,9 @@ God.watch do |w|
   w.keepalive
 end
           CONF
-          append_to_file 'config/fluent.conf', <<-CONF
+          append_to_file Miu.default_fluent_config, <<-CONF
 
-# to miu.plugin.sana
+# to miu.sana
 <match miu.output.**>
   type msgpack_rpc
   host localhost
