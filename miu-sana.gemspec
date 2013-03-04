@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency 'miu'
-  gem.add_dependency 'msgpack-rpc'
+  gem.add_dependency 'saorin'
   gem.add_dependency 'rroonga'
   gem.add_development_dependency 'rake'
 end
