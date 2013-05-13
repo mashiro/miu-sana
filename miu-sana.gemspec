@@ -1,24 +1,27 @@
-# -*- encoding: utf-8 -*-
+# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'miu-sana/version'
+require 'miu/nodes/sana/version'
 
-Gem::Specification.new do |gem|
-  gem.name          = "miu-sana"
-  gem.version       = Miu::Sana::VERSION
-  gem.authors       = ["mashiro"]
-  gem.email         = ["mail@mashiro.org"]
-  gem.description   = %q{miu logging plugin sana}
-  gem.summary       = %q{miu logging plugin sana}
-  gem.homepage      = ""
+Gem::Specification.new do |spec|
+  spec.name          = 'miu-sana'
+  spec.version       = Miu::Nodes::Sana::VERSION
+  spec.authors       = ['mashiro']
+  spec.email         = ['mail@mashiro.org']
+  spec.description   = %q{Logging node for miu}
+  spec.summary       = spec.description
+  spec.homepage      = 'https://github.com/yuijo/miu-sana'
+  spec.license       = 'MIT'
 
-  gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib"]
+  spec.files         = `git ls-files`.split($/)
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ['lib']
 
-  gem.add_dependency 'miu'
-  gem.add_dependency 'saorin'
-  gem.add_dependency 'rroonga'
-  gem.add_development_dependency 'rake'
+  spec.add_dependency 'miu', '>= 0.2.1'
+  spec.add_dependency 'miu-rpc', '>= 0.0.2'
+  spec.add_dependency 'rroonga', '>= 3.0.1'
+  spec.add_dependency 'multi_json', '>= 1.7.3'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec'
 end

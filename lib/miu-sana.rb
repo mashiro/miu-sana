@@ -1,2 +1,1 @@
-require 'miu-sana/version'
-require 'miu/plugins/sana'
+require 'miu/nodes/sana'
