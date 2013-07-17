@@ -26,10 +26,10 @@ module Miu
 
         def add_message(msg)
           network_name = msg.network.name
-          room_name = msg.content.room.name
-          user_name = msg.content.user.name
-          text = msg.content.text
-          meta = MultiJson.encode msg.content.meta
+          room_name = msg.room.name
+          user_name = msg.user.name
+          text = msg.text
+          meta = MultiJson.encode msg.meta
           time = msg.time
 
           network = @networks[network_name] || @networks.add(network_name, :name => network_name)
