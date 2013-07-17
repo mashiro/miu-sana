@@ -28,7 +28,7 @@ module Miu
           establish options[:database]
 
           @server = Server.new options[:bind], options[:port]
-          @subscriber = Subscriber.new options['sub-host'], options['sub-port'], options['sub-tag']
+          @subscriber = Subscriber.new options['sub-topic'], options['sub-host'], options['sub-port']
           @subscriber.async.run
 
           [:INT, :TERM].each do |sig|

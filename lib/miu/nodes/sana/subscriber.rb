@@ -17,7 +17,7 @@ module Miu
           @messages = Groonga['messages']
         end
 
-        def on_text(tag, msg)
+        def on_text(topic, msg)
           add_message(msg)
           Miu::Logger.debug "[ADD] #{msg.inspect}"
         end
